@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escola Estadual Divina Providência — Aulas Gratuitas para Jovens</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #fff;
+    color: #222;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    border-bottom: 2px solid #f0e6ff;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 10;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #7c3aed;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+  }
+
+  nav ul a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: #7c3aed; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    color: #fff;
+    text-align: center;
+    padding: 5rem 2rem 4rem;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #fff;
+    color: #7c3aed;
+    font-weight: 800;
+    font-size: 0.9rem;
+    padding: 0.85rem 2rem;
+    border-radius: 999px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
+  /* SEÇÕES */
+  .secao { padding: 3.5rem 2rem; max-width: 860px; margin: 0 auto; }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #7c3aed;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  /* SOBRE */
+  .sobre-txt {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* OBJETIVOS */
+  .objetivos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .obj-card {
+    background: #f5f0ff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .obj-card .icone { font-size: 2rem; margin-bottom: 0.6rem; }
+
+  .obj-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: #5b21b6;
+  }
+
+  .obj-card p { font-size: 0.88rem; color: #555; line-height: 1.6; }
+
+  /* HORÁRIOS */
+  .horarios-bg {
+    background: #faf5ff;
+    padding: 3.5rem 2rem;
+  }
+
+  .horarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .turma-card {
+    background: #fff;
+    border: 2px solid #e9d5ff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .dia-badge {
+    display: inline-block;
+    background: #7c3aed;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.8rem;
+  }
+
+  .dia-badge.domingo { background: #a855f7; }
+
+  .turma-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; }
+  .turma-card .faixa { font-size: 0.8rem; color: #888; margin-bottom: 0.8rem; }
+  .turma-card .horario { font-size: 1.1rem; font-weight: 700; color: #7c3aed; }
+
+  .local {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.88rem;
+    color: #666;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1.5rem;
+  }
+
+  .local a { color: #7c3aed; font-weight: 700; }
+
+  /* PARTICIPAR */
+  .passos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .passo { text-align: center; padding: 1rem; }
+
+  .passo .num {
+    width: 2.8rem;
+    height: 2.8rem;
+    background: #7c3aed;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin: 0 auto 0.8rem;
+  }
+
+  .passo h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .passo p { font-size: 0.85rem; color: #666; line-height: 1.5; }
+
+  .botoes {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-wpp {
+    display: inline-block;
+    background: #25d366;
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.9rem;
+    padding: 0.85rem 2rem;
+    border-radius: 999px;
+    transition: transform 0.2s;
+  }
+
+  .btn-wpp:hover { transform: translateY(-2px); }
+
+  .btn-outline {
+    display: inline-block;
+    border: 2px solid #7c3aed;
+    color: #7c3aed;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.8rem 2rem;
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { background: #7c3aed; color: #fff; }
+
+  hr { border: none; border-top: 2px solid #f0e6ff; }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.82rem;
+    color: #999;
+    line-height: 1.9;
+  }
+
+  footer a { color: #7c3aed; }
+
+  @media (max-width: 500px) {
+    nav ul { gap: 0.8rem; }
+    nav ul a { font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">💃 Escola Estadual Divina Providência</div>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#horarios">Horários</a></li>
+    <li><a href="#participar">Participar</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Iniciativa Gratuita da Escola</div>
+  <h1>Dança para<br>todos os jovens</h1>
+  <p>Nossa escola oferece aulas de dança gratuitas para os jovens da comunidade. Venha se expressar, criar e pertencer!</p>
+  <a href="#participar" class="btn">Quero participar →</a>
+</div>
+
+<section class="secao" id="sobre">
+  <h2 class="section-title">Sobre o Projeto</h2>
+  <p class="sobre-txt">
+    Nossa escola acredita que a dança é uma poderosa ferramenta de transformação. Por isso, estamos oferecendo aulas <strong>totalmente gratuitas</strong> para os jovens da nossa comunidade — sem precisar ter experiência, basta ter vontade de participar. Queremos ser um espaço de acolhimento, criatividade e crescimento para todos.
+  </p>
+</section>
+
+<hr>
+
+<section class="secao" id="objetivos">
+  <h2 class="section-title">Nossos Objetivos</h2>
+  <div class="objetivos-grid">
+    <div class="obj-card">
+      <div class="icone">🎭</div>
+      <h3>Expressão Artística</h3>
+      <p>Desenvolver a criatividade e a identidade artística de cada participante.</p>
+    </div>
+    <div class="obj-card">
+      <div class="icone">🤝</div>
+      <h3>Integração Social</h3>
+      <p>Fortalecer vínculos e criar redes de apoio dentro da comunidade.</p>
+    </div>
+    <div class="obj-card">
+      <div class="icone">💪</div>
+      <h3>Desenvolvimento Pessoal</h3>
+      <p>Estimular disciplina, foco e autoconfiança por meio do movimento.</p>
+    </div>
+    <div class="obj-card">
+      <div class="icone">❤️</div>
+      <h3>Saúde e Bem-estar</h3>
+      <p>Promover atividade física prazerosa para a saúde do corpo e da mente.</p>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<div class="horarios-bg" id="horarios">
+  <h2 class="section-title">Horários — Fim de Semana</h2>
+  <div class="horarios-grid">
+    <div class="turma-card">
+      <span class="dia-badge">Sábado</span>
+      <h3>Turma Infantil</h3>
+      <p class="faixa">6 a 12 anos</p>
+      <div class="horario">09h00 – 10h30</div>
+    </div>
+    <div class="turma-card">
+      <span class="dia-badge">Sábado</span>
+      <h3>Turma Jovem</h3>
+      <p class="faixa">13 a 25 anos</p>
+      <div class="horario">11h00 – 12h30</div>
+    </div>
+    <div class="turma-card">
+      <span class="dia-badge">Sábado</span>
+      <h3>Turma Adulto</h3>
+      <p class="faixa">26 anos ou mais</p>
+      <div class="horario">14h00 – 15h30</div>
+    </div>
+    <div class="turma-card">
+      <span class="dia-badge domingo">Domingo</span>
+      <h3>Turma Livre</h3>
+      <p class="faixa">Todas as idades</p>
+      <div class="horario">10h00 – 11h30</div>
+    </div>
+  </div>
+  <div class="local">
+    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rua+Professora+Ruth+Pina,+381,+Regina,+Belo+Horizonte,+MG,+30692-180" target="_blank">
+      Rua Professora Ruth Pina, 381 — Regina, Belo Horizonte - MG ↗
+    </a>
+    &nbsp;·&nbsp; Aulas <strong>gratuitas</strong>
+  </div>
+</div>
+
+<hr>
+
+<section class="secao" id="participar">
+  <h2 class="section-title">Como Participar</h2>
+  <div class="passos-lista">
+    <div class="passo">
+      <div class="num">1</div>
+      <h4>Escolha sua turma</h4>
+      <p>Veja os horários e escolha o melhor dia para você.</p>
+    </div>
+    <div class="passo">
+      <div class="num">2</div>
+      <h4>Entre em contato</h4>
+      <p>Fale com a gente pelo WhatsApp ou apareça na escola.</p>
+    </div>
+    <div class="passo">
+      <div class="num">3</div>
+      <h4>Faça sua inscrição</h4>
+      <p>Rápido, simples e totalmente gratuito.</p>
+    </div>
+    <div class="passo">
+      <div class="num">4</div>
+      <h4>Comece a dançar!</h4>
+      <p>Vista roupa confortável e venha se expressar!</p>
+    </div>
+  </div>
+  <div class="botoes">
+    <a href="#horarios" class="btn-outline">📅 Ver horários</a>
+  </div>
+</section>
+
+<hr>
+<footer>
+  <p><strong>Escola Estadual Divina Providência</strong></p>
+  <p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Rua+Professora+Ruth+Pina,+381,+Regina,+Belo+Horizonte,+MG,+30692-180" target="_blank">
+      Rua Professora Ruth Pina, 381 — Regina, Belo Horizonte - MG, 30692-180
+    </a>
+  </p>
+  <p>CNPJ: 20.508.503/0001-8</p>
+</footer>
+
+</body>
+</html>
